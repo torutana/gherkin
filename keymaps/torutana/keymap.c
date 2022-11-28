@@ -19,7 +19,7 @@
 #define SFT_ENT     RSFT_T(KC_ENT)
 #define SFT_A       LSFT_T(KC_A)
 #define CTL_A       CTL_T(KC_A)
-#define SFT_Z     LSFT_T(KC_Z)
+#define SFT_Z       LSFT_T(KC_Z)
 #define SFT_TAB     LSFT_T(KC_TAB)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
