@@ -114,11 +114,29 @@ void led_set_user(uint8_t usb_led) {
   }
 }
 
+// TAPPING_TERM は細かく制御できる。※ホールドにするために押し続ける時間
+// ホールドのつもりでも、この時間内に離してしまうとタップになってしまう。
+// → 小さくするとホールドにしやすい
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LCTL_T(KC_A):
+            return 150;
+        case LT(2, KC_B):
+            return 100;
+        case LT(1, KC_N):
+            return 200;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
 // permissive_hold をキーごとに指定できる。
-// TAPPING_TERMより短に時間内に「ホールド＋タップ」を完遂しても「タップ＋タップ」にならず、あくまでも「ホールド＋タップ」として
+// TAPPING_TERM より短に時間内に「ホールド＋タップ」を完遂しても「タップ＋タップ」にならず、あくまでも「ホールド＋タップ」として扱う。
+// ただし PERMISSIVE_HOLD は、高速入力時にホールドになりやすい。
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(2, KC_B):
+        case LT(1, KC_N):
             return true;
         default:
             return false;
@@ -129,7 +147,9 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 // うっかりホールドになって、を防ぐ
 bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(2, KC_B):
+        //case LT(2, KC_B):
+        //case LT(1, KC_N):
+        case CTL_T(KC_A):
             return false;
         default:
             return true;
@@ -139,7 +159,7 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
 // 「タップ」したつもりが「ホールド」になっていて、指を離しても何も入力されない場合を防ぐ
 bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case CTL_T(KC_A):
+        //case CTL_T(KC_A):
         case LT(5, KC_M):
         case LT(1, KC_N):
         case LT(2, KC_B):
