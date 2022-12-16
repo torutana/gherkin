@@ -68,20 +68,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [2] = LAYOUT_ortho_3x10(
     KC_EXLM,      KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,
-    KC_F11,       KC_F12,  _______, _______, _______, _______, _______, _______, KC_GRV,  KC_DEL,
+    KC_F11,       KC_F12,  _______, _______, _______, _______, _______, _______, _______, KC_DEL,
     _______,      _______, _______, _______, _______, KC_SPC,  _______, _______, _______, _______ 
   ),
 
   [3] = LAYOUT_ortho_3x10(
-    KC_ESC,       _______, _______, _______, _______, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
-    SFT_TAB,      _______, _______, _______, _______, _______, _______, KC_SLSH, KC_SCLN, KC_QUOT,
-    _______,      _______, _______, _______, KC_SPC,  KC_SPC,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+    KC_ESC,       _______, _______, _______, _______, _______, _______, KC_MINS, KC_EQL,  KC_BSLS,
+    SFT_TAB,      _______, _______, _______, _______, _______, _______, KC_LBRC, KC_RBRC, KC_SLSH,
+    _______,      _______, _______, _______, KC_SPC,  KC_SPC,  _______, KC_SCLN, KC_QUOT, _______
   ),
 
   [4] = LAYOUT_ortho_3x10(
-    KC_ESC,       _______, _______, _______, _______, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
-    SFT_TAB,      _______, _______, _______, _______, _______, _______, KC_QUES, KC_COLN, KC_DQUO,
-    _______,      _______, _______, _______, KC_SPC,  KC_SPC,  KC_HOME, KC_PGDN, KC_PGUP, KC_END
+    KC_GRV,       _______, _______, _______, _______, _______, _______, KC_UNDS, KC_PLUS, KC_PIPE,
+    SFT_TAB,      _______, _______, _______, _______, _______, _______, KC_LCBR, KC_RCBR, KC_QUES,
+    _______,      _______, _______, _______, KC_SPC,  KC_SPC,  _______, KC_COLN, KC_DQUO, _______
   ),
 
   [5] = LAYOUT_ortho_3x10(
