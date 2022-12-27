@@ -9,7 +9,8 @@
 #define FN5_B       LT(5, KC_B)
 #define FN5_N       LT(5, KC_N)
 #define FN5_M       LT(5, KC_M)
-#define CTL_Z       CTL_T(KC_Z)
+// Windows で CAPS ←→ Ctrl しているので、右を使う
+#define CTL_Z       RCTL_T(KC_Z)
 #define ALT_X       ALT_T(KC_X)
 #define ALT_N       ALGR_T(KC_N)
 #define ALT_M       ALGR_T(KC_M)
@@ -20,7 +21,8 @@
 #define CTL_DOT     RCTL_T(KC_DOT)
 #define SFT_ENT     RSFT_T(KC_ENT)
 #define SFT_A       LSFT_T(KC_A)
-#define CTL_A       CTL_T(KC_A)
+// Windows で CAPS ←→ Ctrl しているので、右を使う
+#define CTL_A       RCTL_T(KC_A)
 #define SFT_Z       LSFT_T(KC_Z)
 #define SFT_X       LSFT_T(KC_X)
 #define SFT_TAB     LSFT_T(KC_TAB)
@@ -120,6 +122,7 @@ void led_set_user(uint8_t usb_led) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LCTL_T(KC_A):
+        case RCTL_T(KC_A):
             return 150;
         case LT(2, KC_B):
             return 100;
@@ -149,7 +152,8 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         //case LT(2, KC_B):
         //case LT(1, KC_N):
-        case CTL_T(KC_A):
+        case LCTL_T(KC_A):
+        case RCTL_T(KC_A):
             return false;
         default:
             return true;
